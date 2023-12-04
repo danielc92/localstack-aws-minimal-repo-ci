@@ -1,0 +1,19 @@
+{
+  "name": "b",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/danielc92/b.git",
+  "author": "daniel corcoran <danielc.92@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@faker-js/faker": "^8.3.1",
+    "aws-sdk": "^2.1510.0",
+    "jest": "^29.7.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.3.2",
+    "uuid": "^7.0.0"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}

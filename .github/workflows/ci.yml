@@ -1,0 +1,39 @@
+name: ci test
+on:
+  push:
+jobs:
+  build-test-lint:
+    strategy:
+        matrix:
+          version: [18.15]
+    permissions:
+      packages: read
+      id-token: write
+      contents: write
+    runs-on: ubuntu-latest
+    steps:
+    - name: Start LocalStack
+      run: |
+        pip install localstack awscli-local[ver1]
+        docker pull localstack/localstack
+        localstack start -d
+        echo "Waiting for LocalStack startup..."
+        localstack wait -t 30
+        echo "Startup complete"
+    - name: Run some Tests against LocalStack
+      run: |
+        awslocal s3 mb s3://test
+        awslocal s3 ls
+        awslocal dynamodb list-tables
+        echo "Test Execution complete!"
+    - uses: actions/checkout@v3
+      with:
+        # Fetch all branches (required by lerna --since)
+        fetch-depth: '0'
+    - uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.version }}
+    - name: yarn installation
+      run: yarn
+    - name: test files
+      run: yarn jest --verbose
