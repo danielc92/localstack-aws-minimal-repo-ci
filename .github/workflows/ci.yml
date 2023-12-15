@@ -28,7 +28,6 @@ jobs:
         echo "Test Execution complete!"
     - uses: actions/checkout@v3
       with:
-        # Fetch all branches (required by lerna --since)
         fetch-depth: '0'
     - uses: actions/setup-node@v3
       with:
