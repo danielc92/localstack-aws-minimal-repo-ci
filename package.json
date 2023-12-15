@@ -2,7 +2,7 @@
   "name": "localstack-aws-minimal-repo-ci",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/danielc92/b.git",
+  "repository": "https://github.com/danielc92/localstack-aws-minimal-repo-ci.git",
   "author": "daniel corcoran <danielc.92@outlook.com>",
   "license": "MIT",
   "dependencies": {
