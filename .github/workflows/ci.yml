@@ -17,18 +17,10 @@ jobs:
         pip install localstack awscli-local[ver1]
         docker pull localstack/localstack
         localstack start -d
-        echo "Waiting for LocalStack startup..."
+        echo "Localstack starting..."
         localstack wait -t 30
-        echo "Startup complete"
-    - name: Run some Tests against LocalStack
-      run: |
-        awslocal s3 mb s3://test
-        awslocal s3 ls
-        awslocal dynamodb list-tables
-        echo "Test Execution complete!"
+        echo "Localstack started."
     - uses: actions/checkout@v3
-      with:
-        fetch-depth: '0'
     - uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.version }}
