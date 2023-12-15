@@ -1,5 +1,5 @@
 {
-  "name": "b",
+  "name": "localstack-aws-minimal-repo-ci",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/danielc92/b.git",
